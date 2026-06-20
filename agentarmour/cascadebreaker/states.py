@@ -4,8 +4,11 @@ import asyncio
 import time
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any
+from typing import Any, TYPE_CHECKING
 import structlog
+
+if TYPE_CHECKING:
+    from agentarmour.cascadebreaker.storage.base import AuditLedger
 
 logger = structlog.get_logger(__name__)
 
@@ -60,12 +63,14 @@ class BreakerStateMachine:
         recovery_timeout: float,
         window_seconds: float,
         half_open_max_calls: int = 1,
+        audit_ledger: "AuditLedger | None" = None,
     ) -> None:
         self.breaker_name = breaker_name
         self.failure_threshold = failure_threshold
         self.recovery_timeout = recovery_timeout
         self.window_seconds = window_seconds
         self.half_open_max_calls = half_open_max_calls
+        self._audit_ledger = audit_ledger
 
         self._state: BreakerState = BreakerState.CLOSED
         self._failures: list[FailureRecord] = []
@@ -168,6 +173,8 @@ class BreakerStateMachine:
                 breaker=self.breaker_name,
                 traceback=record.traceback_str,
             )
+            if self._audit_ledger is not None:
+                await self._audit_ledger.log_failure(record)
 
             if self._state is BreakerState.HALF_OPEN:
                 await self._transition_to(
@@ -215,6 +222,8 @@ class BreakerStateMachine:
             to_state=new_state.value,
             reason=reason,
         )
+        if self._audit_ledger is not None:
+            await self._audit_ledger.log_transition(transition)
 
     async def reset(self) -> None:
         async with self._lock:

@@ -4,8 +4,11 @@ import asyncio
 import functools
 import time
 import traceback
-from typing import Any, Callable, Awaitable, TypeVar, Optional
+from typing import Any, Callable, Awaitable, TypeVar, Optional, TYPE_CHECKING
 import structlog
+
+if TYPE_CHECKING:
+    from agentarmour.cascadebreaker.storage.base import AuditLedger
 
 from agentarmour.cascadebreaker.config import BreakerConfig
 from agentarmour.cascadebreaker.states import (
@@ -55,6 +58,7 @@ class CircuitBreaker:
         on_open: Optional[Callable[[str], Awaitable[None]]] = None,
         on_close: Optional[Callable[[str], Awaitable[None]]] = None,
         on_half_open: Optional[Callable[[str], Awaitable[None]]] = None,
+        ledger: Optional["AuditLedger"] = None,
     ) -> None:
         self.name = name
         self.config = config or BreakerConfig()
@@ -72,6 +76,7 @@ class CircuitBreaker:
             recovery_timeout=self.config.recovery_timeout,
             window_seconds=self.config.window_seconds,
             half_open_max_calls=self.config.half_open_max_calls,
+            audit_ledger=ledger,
         )
 
         self._on_open = on_open
