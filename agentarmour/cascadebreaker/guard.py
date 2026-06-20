@@ -202,4 +202,4 @@ class CascadeGuard:
             _wrapper.__cascade_guard__ = self
             return _wrapper
 
-        return
+        return decorator
