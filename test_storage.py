@@ -5,7 +5,7 @@ structlog.configure(wrapper_class=structlog.make_filtering_bound_logger(logging.
 
 import asyncio
 import os
-import aiosqlite
+import sqlite3
 
 from agentarmour.cascadebreaker import CircuitBreaker, BreakerConfig
 from agentarmour.cascadebreaker.strategies import CacheStrategy

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import os
 import pytest
-import aiosqlite
+import sqlite3
 
 from agentarmour.cascadebreaker import CircuitBreaker, BreakerConfig
 from agentarmour.cascadebreaker.strategies import CacheStrategy
@@ -38,9 +38,9 @@ class TestSQLiteLedger:
 
         await failing_node({})
 
-        async with aiosqlite.connect(TEST_DB) as db:
-            async with db.execute("SELECT breaker_name, error_message FROM cb_failures") as cursor:
-                rows = await cursor.fetchall()
+        conn = sqlite3.connect(TEST_DB)
+        rows = conn.execute("SELECT breaker_name, error_message FROM cb_failures").fetchall()
+        conn.close()
 
         assert len(rows) == 1
         assert rows[0][0] == "ledger_test"
@@ -61,11 +61,11 @@ class TestSQLiteLedger:
 
         await failing_node({})
 
-        async with aiosqlite.connect(TEST_DB) as db:
-            async with db.execute(
-                "SELECT breaker_name, from_state, to_state FROM cb_transitions"
-            ) as cursor:
-                rows = await cursor.fetchall()
+        conn = sqlite3.connect(TEST_DB)
+        rows = conn.execute(
+            "SELECT breaker_name, from_state, to_state FROM cb_transitions"
+        ).fetchall()
+        conn.close()
 
         assert len(rows) == 1
         assert rows[0] == ("ledger_transition_test", "CLOSED", "OPEN")

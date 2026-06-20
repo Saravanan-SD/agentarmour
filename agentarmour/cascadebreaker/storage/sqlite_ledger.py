@@ -1,29 +1,24 @@
 """
 SQLite-backed audit ledger for CascadeBreaker.
 
-Requires the optional `aiosqlite` dependency:
-    uv add --optional storage aiosqlite
+Uses Python's built-in `sqlite3` module, so no extra dependency is
+required to use this feature. Database operations run in a background
+thread via asyncio.to_thread, so they never block the event loop.
 """
 
 from __future__ import annotations
 
 import asyncio
 import json
-
-try:
-    import aiosqlite
-except ImportError as exc:
-    raise ImportError(
-        "SQLiteLedger requires the 'aiosqlite' package. "
-        "Install it with: uv add --optional storage aiosqlite"
-    ) from exc
+import sqlite3
 
 from agentarmour.cascadebreaker.states import FailureRecord, StateTransition
 from agentarmour.cascadebreaker.storage.base import AuditLedger
 
 
 class SQLiteLedger(AuditLedger):
-    """Persists circuit breaker failures and state transitions to SQLite.
+    """Persists circuit breaker failures and state transitions to a local
+    SQLite file, using only Python's standard library.
 
     Tables are created lazily on first write, so no separate async setup
     step is required. Safe to share across multiple CircuitBreaker
@@ -42,48 +37,60 @@ class SQLiteLedger(AuditLedger):
         self._initialised = False
         self._init_lock = asyncio.Lock()
 
+    def _connect(self) -> sqlite3.Connection:
+        # Each call opens its own connection. sqlite3 connections are not
+        # safe to share across threads, and to_thread may use a different
+        # thread on each call.
+        return sqlite3.connect(self._db_path)
+
+    def _create_tables_sync(self) -> None:
+        conn = self._connect()
+        try:
+            conn.execute(
+                f"""
+                CREATE TABLE IF NOT EXISTS {self._prefix}failures (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    breaker_name TEXT NOT NULL,
+                    category TEXT NOT NULL,
+                    error_type TEXT NOT NULL,
+                    error_message TEXT NOT NULL,
+                    traceback_str TEXT,
+                    latency_ms REAL,
+                    timestamp REAL NOT NULL,
+                    metadata TEXT
+                )
+                """
+            )
+            conn.execute(
+                f"""
+                CREATE TABLE IF NOT EXISTS {self._prefix}transitions (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    breaker_name TEXT NOT NULL,
+                    from_state TEXT NOT NULL,
+                    to_state TEXT NOT NULL,
+                    reason TEXT NOT NULL,
+                    failure_count INTEGER,
+                    timestamp REAL NOT NULL
+                )
+                """
+            )
+            conn.commit()
+        finally:
+            conn.close()
+
     async def _ensure_initialised(self) -> None:
         if self._initialised:
             return
         async with self._init_lock:
             if self._initialised:
                 return
-            async with aiosqlite.connect(self._db_path) as db:
-                await db.execute(
-                    f"""
-                    CREATE TABLE IF NOT EXISTS {self._prefix}failures (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        breaker_name TEXT NOT NULL,
-                        category TEXT NOT NULL,
-                        error_type TEXT NOT NULL,
-                        error_message TEXT NOT NULL,
-                        traceback_str TEXT,
-                        latency_ms REAL,
-                        timestamp REAL NOT NULL,
-                        metadata TEXT
-                    )
-                    """
-                )
-                await db.execute(
-                    f"""
-                    CREATE TABLE IF NOT EXISTS {self._prefix}transitions (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        breaker_name TEXT NOT NULL,
-                        from_state TEXT NOT NULL,
-                        to_state TEXT NOT NULL,
-                        reason TEXT NOT NULL,
-                        failure_count INTEGER,
-                        timestamp REAL NOT NULL
-                    )
-                    """
-                )
-                await db.commit()
+            await asyncio.to_thread(self._create_tables_sync)
             self._initialised = True
 
-    async def log_failure(self, record: FailureRecord) -> None:
-        await self._ensure_initialised()
-        async with aiosqlite.connect(self._db_path) as db:
-            await db.execute(
+    def _insert_failure_sync(self, record: FailureRecord) -> None:
+        conn = self._connect()
+        try:
+            conn.execute(
                 f"""
                 INSERT INTO {self._prefix}failures
                 (breaker_name, category, error_type, error_message,
@@ -101,12 +108,18 @@ class SQLiteLedger(AuditLedger):
                     json.dumps(record.metadata),
                 ),
             )
-            await db.commit()
+            conn.commit()
+        finally:
+            conn.close()
 
-    async def log_transition(self, transition: StateTransition) -> None:
+    async def log_failure(self, record: FailureRecord) -> None:
         await self._ensure_initialised()
-        async with aiosqlite.connect(self._db_path) as db:
-            await db.execute(
+        await asyncio.to_thread(self._insert_failure_sync, record)
+
+    def _insert_transition_sync(self, transition: StateTransition) -> None:
+        conn = self._connect()
+        try:
+            conn.execute(
                 f"""
                 INSERT INTO {self._prefix}transitions
                 (breaker_name, from_state, to_state, reason, failure_count, timestamp)
@@ -121,9 +134,15 @@ class SQLiteLedger(AuditLedger):
                     transition.timestamp,
                 ),
             )
-            await db.commit()
+            conn.commit()
+        finally:
+            conn.close()
+
+    async def log_transition(self, transition: StateTransition) -> None:
+        await self._ensure_initialised()
+        await asyncio.to_thread(self._insert_transition_sync, transition)
 
     async def close(self) -> None:
-        # Connections are opened per-operation and closed automatically,
-        # so there's nothing persistent to release here.
+        # Connections are opened and closed per-operation, so there's
+        # nothing persistent to release here.
         return None
