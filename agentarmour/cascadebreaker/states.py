@@ -33,6 +33,7 @@ class FailureRecord:
     category: FailureCategory
     error_type: str
     error_message: str
+    traceback_str: str = ""
     timestamp: float = field(default_factory=time.time)
     latency_ms: float = 0.0
     metadata: dict[str, Any] = field(default_factory=dict)
@@ -161,6 +162,11 @@ class BreakerStateMachine:
                 error=record.error_message,
                 failure_count=len(self._failures),
                 threshold=self.failure_threshold,
+            )
+            logger.debug(
+                "breaker.failure_traceback",
+                breaker=self.breaker_name,
+                traceback=record.traceback_str,
             )
 
             if self._state is BreakerState.HALF_OPEN:

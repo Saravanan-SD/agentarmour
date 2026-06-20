@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import functools
 import time
+import traceback
 from typing import Any, Callable, Awaitable, TypeVar, Optional
 import structlog
 
@@ -188,12 +189,15 @@ class CircuitBreaker:
         category: FailureCategory,
         prev_state: BreakerState,
     ) -> dict[str, Any]:
+        tb_str = traceback.format_exc()
         record = FailureRecord(
             breaker_name=self.name,
             category=category,
             error_type=f"{type(exc).__module__}.{type(exc).__name__}",
             error_message=str(exc),
+            traceback_str=tb_str,
             latency_ms=latency_ms,
+            metadata=self.config.extra_metadata,
         )
         await self._state_machine.record_failure(record)
         await self._state_machine.record_fallback()
@@ -204,9 +208,12 @@ class CircuitBreaker:
             "last_error": str(exc),
             "failure_count": self._state_machine.failure_count,
             "category": category.value,
+            "traceback": tb_str,
         }
         result = await self._invoke_fallback(state, failure_context)
-        return result.state
+        result_state = result.state
+        result_state["__cascadebreaker_traceback__"] = tb_str
+        return result_state
 
     async def _invoke_fallback(
         self,
