@@ -1,0 +1,36 @@
+site_name: CascadeBreaker
+site_description: Circuit breaker and self-healing layer for LangGraph multi-agent systems
+repo_url: https://github.com/Saravanan-SD/agentarmour
+repo_name: Saravanan-SD/agentarmour
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Fallback Strategies: strategies.md
+  - Cross-Agent Guard: guard.md
+  - Audit Ledger: storage.md
+  - CLI: cli.md
+  - Dashboard: dashboard.md
+  - Limitations: limitations.md
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition

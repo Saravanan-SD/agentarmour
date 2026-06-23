@@ -1,0 +1,35 @@
+# CascadeBreaker
+
+**Circuit breaker and self-healing layer for LangGraph multi-agent systems.**
+
+## Why This Exists
+
+Existing circuit breaker tools for LLMs (`llm-circuit`, `aeneassoft`, `llm-cascade`) only protect against **LLM API provider outages**. OpenAI down, Anthropic rate-limited.
+
+They do nothing about what actually breaks production multi-agent systems: an agent stuck in a reasoning loop, a hallucinated value silently poisoning shared state, one agent's failure cascading through every downstream node.
+
+A March 2025 paper, ["Why Do Multi-Agent LLM Systems Fail?"](https://arxiv.org/abs/2503.13657) (Cemri, Pan, Yang, Agrawal, Chopra, Tiwari, Keutzer, Parameswaran, Klein, Ramchandran, Zaharia, Gonzalez, and Stoica), analysed over 1,600 execution traces across seven multi-agent frameworks and identified 14 distinct failure modes. None of them involve an API going down.
+
+CascadeBreaker operates one level below the API, at the individual LangGraph node.
+
+## What's In This Documentation
+
+- **[Getting Started](getting-started.md)** — install and your first protected node
+- **[Fallback Strategies](strategies.md)** — the four ways to respond when a breaker trips
+- **[Cross-Agent Guard](guard.md)** — stopping contaminated data from spreading between agents
+- **[Audit Ledger](storage.md)** — persisting failures and state transitions to SQLite
+- **[CLI](cli.md)** — inspecting your audit log from the terminal
+- **[Dashboard](dashboard.md)** — visualizing breaker health with Streamlit
+- **[Limitations](limitations.md)** — what this does not solve yet, stated plainly
+
+## Install
+
+```bash
+pip install agentarmour-toolkit
+```
+
+Core install pulls in only `pydantic` and `structlog`. Everything else (LangGraph integration, dashboard, dev tools) is optional.
+
+## Source
+
+[github.com/Saravanan-SD/agentarmour](https://github.com/Saravanan-SD/agentarmour)
