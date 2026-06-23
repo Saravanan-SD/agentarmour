@@ -59,6 +59,9 @@ langgraph = [
     "langgraph>=1.1.10",
 ]
 
+[project.scripts]
+agentarmour = "agentarmour.cascadebreaker.cli:main"
+
 [project.urls]
 Homepage = "https://github.com/Saravanan-SD/agentarmour"
 Repository = "https://github.com/Saravanan-SD/agentarmour"
