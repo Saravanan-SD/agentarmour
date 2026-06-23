@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "agentarmour"
-version = "0.1.0"
+version = "0.1.1"
 description = "Production reliability suite for LangChain/LangGraph multi-agent systems"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -31,7 +31,6 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "ipykernel>=7.2.0",
     "pydantic>=2.0.0",
     "structlog>=24.0.0",
 ]
