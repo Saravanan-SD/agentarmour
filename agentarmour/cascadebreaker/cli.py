@@ -145,10 +145,6 @@ def build_parser() -> argparse.ArgumentParser:
     ledger_parser = subparsers.add_parser("ledger", help="Inspect the audit ledger")
     ledger_sub = ledger_parser.add_subparsers(dest="ledger_command")
 
-    common_args = {
-        "--db": {"default": "cascadebreaker.db", "help": "Path to the SQLite ledger file"},
-        "--table-prefix": {"default": "cb_", "help": "Table name prefix used by the ledger"},
-    }
 
     summary_parser = ledger_sub.add_parser("summary", help="Show a high-level summary")
     summary_parser.add_argument("--db", default="cascadebreaker.db")
