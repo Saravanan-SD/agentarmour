@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "agentarmour"
+name = "agentarmour-toolkit"
 version = "0.1.1"
 description = "Production reliability suite for LangChain/LangGraph multi-agent systems"
 readme = "README.md"

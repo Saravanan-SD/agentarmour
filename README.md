@@ -22,16 +22,16 @@ CascadeBreaker operates one level below the API, at the individual LangGraph nod
 ## Install
 
 ```bash
-pip install agentarmour
+pip install agentarmour-toolkit
 ```
 
 Core install pulls in only two dependencies: `pydantic` and `structlog`. Everything else is optional, installed only when you need it:
 
 ```bash
-pip install agentarmour[langgraph]    # LangGraph/LangChain integration
-pip install agentarmour[dashboard]    # Streamlit dashboard
-pip install agentarmour[dev]          # pytest, ruff, dev tools
-pip install agentarmour[all]          # everything
+pip install agentarmour-toolkit[langgraph]    # LangGraph/LangChain integration
+pip install agentarmour-toolkit[dashboard]    # Streamlit dashboard
+pip install agentarmour-toolkit[dev]          # pytest, ruff, dev tools
+pip install agentarmour-toolkit[all]          # everything
 ```
 
 Verified: a clean install of the base package brings in exactly 7 packages total (the library, `pydantic`, `structlog`, and their own small dependencies), nothing else.
