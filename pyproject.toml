@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "agentarmour-toolkit"
-version = "0.1.1"
+version = "0.2.0"
 description = "Production reliability suite for LangChain/LangGraph multi-agent systems"
 readme = "README.md"
 license = { file = "LICENSE" }
