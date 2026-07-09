@@ -6,12 +6,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Circuit breaker and self-healing layer for LangGraph multi-agent systems">
+        <meta name="description" content="Production reliability suite for LangChain/LangGraph multi-agent systems">
       
       
       
       
-        <link rel="prev" href="../strategies/">
+        <link rel="prev" href="../cascadebreaker/guard/">
       
       
         <link rel="next" href="../storage/">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Cross-Agent Guard - CascadeBreaker</title>
+        <title>Overview - AgentArmour</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cross-agent-contamination-guard" class="md-skip">
+        <a href="#agentbudget" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="CascadeBreaker" class="md-header__button md-logo" aria-label="CascadeBreaker" data-md-component="logo">
+    <a href=".." title="AgentArmour" class="md-header__button md-logo" aria-label="AgentArmour" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,13 +106,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            CascadeBreaker
+            AgentArmour
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cross-Agent Guard
+              Overview
             
           </span>
         </div>
@@ -228,13 +228,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="CascadeBreaker" class="md-nav__button md-logo" aria-label="CascadeBreaker" data-md-component="logo">
+    <a href=".." title="AgentArmour" class="md-nav__button md-logo" aria-label="AgentArmour" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    CascadeBreaker
+    AgentArmour
   </label>
   
     <div class="md-nav__source">
@@ -311,8 +311,88 @@
   
   
   
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CascadeBreaker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CascadeBreaker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../strategies/" class="md-nav__link">
+      <a href="../cascadebreaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cascadebreaker/strategies/" class="md-nav__link">
         
   
   
@@ -331,9 +411,99 @@
     </li>
   
 
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cascadebreaker/guard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-Agent Guard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
       
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AgentBudget
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AgentBudget
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
     
@@ -355,7 +525,7 @@
   <span class="md-ellipsis">
     
   
-    Cross-Agent Guard
+    Overview
   
 
     
@@ -373,7 +543,7 @@
   <span class="md-ellipsis">
     
   
-    Cross-Agent Guard
+    Overview
   
 
     
@@ -421,10 +591,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
+  <a href="#reporting-token-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parameters
+        Reporting Token Usage
       
     </span>
   </a>
@@ -432,10 +602,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#strict-mode" class="md-nav__link">
+  <a href="#scopes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Strict Mode
+        Scopes
       
     </span>
   </a>
@@ -443,10 +613,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manually-managing-quarantine" class="md-nav__link">
+  <a href="#actions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manually Managing Quarantine
+        Actions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audit-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Ledger
       
     </span>
   </a>
@@ -456,6 +637,14 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -618,10 +807,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
+  <a href="#reporting-token-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parameters
+        Reporting Token Usage
       
     </span>
   </a>
@@ -629,10 +818,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#strict-mode" class="md-nav__link">
+  <a href="#scopes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Strict Mode
+        Scopes
       
     </span>
   </a>
@@ -640,10 +829,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manually-managing-quarantine" class="md-nav__link">
+  <a href="#actions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manually Managing Quarantine
+        Actions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audit-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Ledger
       
     </span>
   </a>
@@ -670,62 +870,81 @@
   
 
 
-<h1 id="cross-agent-contamination-guard">Cross-Agent Contamination Guard</h1>
-<p>A circuit breaker catches loud failures, the kind that raise exceptions. It does not catch an agent that <em>appears</em> to succeed while quietly writing corrupted data into shared state, which the next agent then trusts and builds on without question.</p>
-<p><code>CascadeGuard</code> closes that gap.</p>
+<h1 id="agentbudget">AgentBudget</h1>
+<p>A circuit breaker catches failures that raise. AgentBudget catches a quieter one: token and cost blowups that never raise anything at all. The pipeline runs clean, the output looks fine, and the only signal is the bill at the end of the month.</p>
+<p><code>AgentBudget</code> puts a ceiling on spend while the run is still happening.</p>
 <h2 id="the-problem-it-solves">The Problem It Solves</h2>
-<p>Agent A fails partway through → writes a malformed value to "extracted_entities"</p>
-<p>Agent B reads "extracted_entities" → trusts it → produces wrong output</p>
-<p>Agent C inherits Agent B's wrong output → compounds the error</p>
-<p>No exception is ever raised. The pipeline looks healthy. The output is wrong.</p>
+<p>Agent A enters a retry loop → each pass is a fresh LLM call → tokens climb</p>
+<p>Agent B fans out to five sub-agents → each one calls the model → cost multiplies per branch</p>
+<p>Nobody set a ceiling → the run finishes → the spend is only visible after the fact</p>
+<p>No exception is ever raised. The graph looks healthy. The cost is not.</p>
 <h2 id="basic-usage">Basic Usage</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">agentarmour.cascadebreaker</span><span class="w"> </span><span class="kn">import</span> <span class="n">CascadeGuard</span>
-
-<span class="n">guard</span> <span class="o">=</span> <span class="n">CascadeGuard</span><span class="p">(</span><span class="n">quarantine_ttl_seconds</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-
-<span class="nd">@guard</span><span class="o">.</span><span class="n">protect_node</span><span class="p">(</span>
-    <span class="s2">&quot;extract_agent&quot;</span><span class="p">,</span>
-    <span class="n">quarantine_on_failure</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">],</span>
-    <span class="n">reads_from</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;raw_document&quot;</span><span class="p">],</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">agentarmour.agentbudget</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Budget</span><span class="p">,</span>
+    <span class="n">BudgetConfig</span><span class="p">,</span>
+    <span class="n">ModelPrice</span><span class="p">,</span>
+    <span class="n">report</span><span class="p">,</span>
+    <span class="n">run_context</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">extract_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="n">state</span><span class="p">[</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">extract_llm</span><span class="o">.</span><span class="n">ainvoke</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;raw_document&quot;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">state</span>
 
-<span class="nd">@guard</span><span class="o">.</span><span class="n">protect_node</span><span class="p">(</span>
-    <span class="s2">&quot;analyse_agent&quot;</span><span class="p">,</span>
-    <span class="n">reads_from</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">],</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">BudgetConfig</span><span class="p">(</span>
+    <span class="n">prices</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;my-model&quot;</span><span class="p">:</span> <span class="n">ModelPrice</span><span class="p">(</span><span class="n">input_per_million</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">output_per_million</span><span class="o">=</span><span class="mf">15.0</span><span class="p">),</span>
+    <span class="p">},</span>
+    <span class="n">run_limit_usd</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">analyse_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="n">entities</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">entities</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="o">**</span><span class="n">state</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">:</span> <span class="s2">&quot;Entities unavailable, upstream agent degraded.&quot;</span><span class="p">}</span>
-    <span class="k">return</span> <span class="p">{</span><span class="o">**</span><span class="n">state</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">:</span> <span class="k">await</span> <span class="n">analyse_llm</span><span class="o">.</span><span class="n">ainvoke</span><span class="p">(</span><span class="n">entities</span><span class="p">)}</span>
-</code></pre></div>
-<p>If <code>extract_node</code> raises an exception, <code>extracted_entities</code> is quarantined for 300 seconds. Any node that declares <code>reads_from=["extracted_entities"]</code> during that window receives <code>None</code> for that field instead of whatever <code>extract_node</code> may have partially written.</p>
-<h2 id="parameters">Parameters</h2>
-<p><strong><code>quarantine_on_failure</code></strong> — list of state keys to quarantine if this node raises an exception. These are fields this node is responsible for producing.</p>
-<p><strong><code>reads_from</code></strong> — list of state keys this node depends on. Before the node runs, each of these is checked. If quarantined, it's replaced with <code>None</code> (or a value from <code>field_defaults</code>, if provided).</p>
-<p><strong><code>field_defaults</code></strong> — optional dict mapping field names to a replacement value other than <code>None</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@guard</span><span class="o">.</span><span class="n">protect_node</span><span class="p">(</span>
-    <span class="s2">&quot;analyse_agent&quot;</span><span class="p">,</span>
-    <span class="n">reads_from</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">],</span>
-    <span class="n">field_defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">:</span> <span class="p">[]},</span>
-<span class="p">)</span>
-</code></pre></div>
-<h2 id="strict-mode">Strict Mode</h2>
-<p>By default, a quarantined field is silently replaced with <code>None</code>. If you'd rather fail loudly during development:</p>
-<div class="highlight"><pre><span></span><code><span class="n">guard</span> <span class="o">=</span> <span class="n">CascadeGuard</span><span class="p">(</span><span class="n">strict_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-<p>In strict mode, reading a quarantined field raises <code>ContaminatedStateError</code> instead of substituting a default.</p>
-<h2 id="manually-managing-quarantine">Manually Managing Quarantine</h2>
-<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">guard</span><span class="o">.</span><span class="n">quarantine_field</span><span class="p">(</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">,</span> <span class="n">source_node</span><span class="o">=</span><span class="s2">&quot;extract_agent&quot;</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;manual flag&quot;</span><span class="p">)</span>
-<span class="k">await</span> <span class="n">guard</span><span class="o">.</span><span class="n">lift_quarantine</span><span class="p">(</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">)</span>
+<span class="n">budget</span> <span class="o">=</span> <span class="n">Budget</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
-<span class="n">guard</span><span class="o">.</span><span class="n">is_quarantined</span><span class="p">(</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">)</span>  <span class="c1"># bool</span>
-<span class="n">guard</span><span class="o">.</span><span class="n">quarantined_fields</span>                    <span class="c1"># list of currently quarantined fields</span>
-<span class="n">guard</span><span class="o">.</span><span class="n">metrics</span>                               <span class="c1"># dict for dashboard/monitoring</span>
+<span class="nd">@budget</span><span class="o">.</span><span class="n">track</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">research_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="k">await</span> <span class="n">research_llm</span><span class="o">.</span><span class="n">ainvoke</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">])</span>
+    <span class="n">report</span><span class="p">(</span><span class="s2">&quot;my-model&quot;</span><span class="p">,</span> <span class="n">input_tokens</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">output_tokens</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="o">**</span><span class="n">state</span><span class="p">,</span> <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="n">answer</span><span class="p">}</span>
 </code></pre></div>
+<p>Each time <code>research_node</code> runs, its reported tokens are priced, added to the node, run, and global totals, and checked against your limits. If the run total crosses <code>run_limit_usd</code>, the configured action fires.</p>
+<p>Wrap a whole pipeline run in <code>run_context()</code> so per-run limits have something to count against:</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">run_context</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">research_node</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">analyse_node</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</code></pre></div>
+<p>Without it, node and global limits still work, but run-scoped limits have no run to track.</p>
+<h2 id="reporting-token-usage">Reporting Token Usage</h2>
+<p>AgentBudget needs to know how many tokens each call used. Two ways to tell it.</p>
+<p><strong>Manual</strong> — call <code>report()</code> inside the node with the counts your provider returned:</p>
+<div class="highlight"><pre><span></span><code><span class="n">report</span><span class="p">(</span><span class="s2">&quot;my-model&quot;</span><span class="p">,</span> <span class="n">input_tokens</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">output_tokens</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>LangChain callback</strong> — if you use LangChain, attach the handler and it reports for you:</p>
+<div class="highlight"><pre><span></span><code><span class="n">handler</span> <span class="o">=</span> <span class="n">budget</span><span class="o">.</span><span class="n">callback_handler</span><span class="p">()</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="k">await</span> <span class="n">research_llm</span><span class="o">.</span><span class="n">ainvoke</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">],</span> <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;callbacks&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">handler</span><span class="p">]})</span>
+</code></pre></div>
+<p>The callback reads token counts off the LLM response automatically. It requires the optional dependency: <code>pip install agentarmour-toolkit[agentbudget]</code>.</p>
+<h2 id="scopes">Scopes</h2>
+<p>Three limits, checked on every recorded call. Any of them can be left unset.</p>
+<p><strong><code>node_limit_usd</code></strong> — cap on a single node's total spend, summed across every time it runs.</p>
+<p><strong><code>run_limit_usd</code></strong> — cap on one pipeline run, tracked through <code>run_context()</code>.</p>
+<p><strong><code>global_limit_usd</code></strong> — cap on everything the <code>Budget</code> has ever seen, across all runs and nodes.</p>
+<p>The verdict returned is always the worst of the three. If the node is fine but the run has exceeded, the state is exceeded.</p>
+<h2 id="actions">Actions</h2>
+<p>What happens when a limit is crossed, set by <code>action</code> in <code>BudgetConfig</code>:</p>
+<p><strong><code>WARN</code></strong> (default) — logs loudly and lets the node finish. Nothing is interrupted.</p>
+<p><strong><code>BLOCK</code></strong> — raises <code>BudgetExceeded</code> and stops the node before it returns.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">agentarmour.agentbudget</span><span class="w"> </span><span class="kn">import</span> <span class="n">OverBudgetAction</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">BudgetConfig</span><span class="p">(</span>
+    <span class="n">prices</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">},</span>
+    <span class="n">run_limit_usd</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
+    <span class="n">action</span><span class="o">=</span><span class="n">OverBudgetAction</span><span class="o">.</span><span class="n">BLOCK</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>A <code>warn_threshold</code> (default <code>0.8</code>) sets when a limit enters the warning state, at 80% of the cap by default, so you get a heads-up before the ceiling, not just at it.</p>
+<h2 id="audit-ledger">Audit Ledger</h2>
+<p>Pass a ledger and every recorded call is written to SQLite, in its own <code>ab_events</code> table, in the same database file CascadeBreaker uses:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">agentarmour.agentbudget</span><span class="w"> </span><span class="kn">import</span> <span class="n">SQLiteBudgetLedger</span>
+
+<span class="n">ledger</span> <span class="o">=</span> <span class="n">SQLiteBudgetLedger</span><span class="p">(</span><span class="n">db_path</span><span class="o">=</span><span class="s2">&quot;agentarmour.db&quot;</span><span class="p">)</span>
+<span class="n">budget</span> <span class="o">=</span> <span class="n">Budget</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">ledger</span><span class="o">=</span><span class="n">ledger</span><span class="p">)</span>
+</code></pre></div>
+<p>The two modules share the file but never the tables. Inspect it with <code>agentarmour budget summary</code>, or open the dashboard.</p>
 
 
 

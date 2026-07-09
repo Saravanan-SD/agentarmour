@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Circuit breaker and self-healing layer for LangGraph multi-agent systems">
+        <meta name="description" content="Production reliability suite for LangChain/LangGraph multi-agent systems">
       
       
       
@@ -23,7 +23,7 @@
     
     
       
-        <title>CascadeBreaker</title>
+        <title>AgentArmour</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cascadebreaker" class="md-skip">
+        <a href="#agentarmour" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="CascadeBreaker" class="md-header__button md-logo" aria-label="CascadeBreaker" data-md-component="logo">
+    <a href="." title="AgentArmour" class="md-header__button md-logo" aria-label="AgentArmour" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,7 +104,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            CascadeBreaker
+            AgentArmour
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -226,13 +226,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="CascadeBreaker" class="md-nav__button md-logo" aria-label="CascadeBreaker" data-md-component="logo">
+    <a href="." title="AgentArmour" class="md-nav__button md-logo" aria-label="AgentArmour" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    CascadeBreaker
+    AgentArmour
   </label>
   
     <div class="md-nav__source">
@@ -316,10 +316,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-this-exists" class="md-nav__link">
+  <a href="#modules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why This Exists
+        Modules
       
     </span>
   </a>
@@ -327,10 +327,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-in-this-documentation" class="md-nav__link">
+  <a href="#shared-tooling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What's In This Documentation
+        Shared Tooling
       
     </span>
   </a>
@@ -400,8 +400,88 @@
   
   
   
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CascadeBreaker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CascadeBreaker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="strategies/" class="md-nav__link">
+      <a href="cascadebreaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cascadebreaker/strategies/" class="md-nav__link">
         
   
   
@@ -420,15 +500,16 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="guard/" class="md-nav__link">
+      <a href="cascadebreaker/guard/" class="md-nav__link">
         
   
   
@@ -444,6 +525,101 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AgentBudget
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AgentBudget
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="agentbudget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -583,10 +759,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-this-exists" class="md-nav__link">
+  <a href="#modules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why This Exists
+        Modules
       
     </span>
   </a>
@@ -594,10 +770,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-in-this-documentation" class="md-nav__link">
+  <a href="#shared-tooling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What's In This Documentation
+        Shared Tooling
       
     </span>
   </a>
@@ -646,27 +822,26 @@
   
 
 
-<h1 id="cascadebreaker">CascadeBreaker</h1>
-<p><strong>Circuit breaker and self-healing layer for LangGraph multi-agent systems.</strong></p>
-<h2 id="why-this-exists">Why This Exists</h2>
-<p>Existing circuit breaker tools for LLMs (<code>llm-circuit</code>, <code>aeneassoft</code>, <code>llm-cascade</code>) only protect against <strong>LLM API provider outages</strong>. OpenAI down, Anthropic rate-limited.</p>
-<p>They do nothing about what actually breaks production multi-agent systems: an agent stuck in a reasoning loop, a hallucinated value silently poisoning shared state, one agent's failure cascading through every downstream node.</p>
-<p>A March 2025 paper, <a href="https://arxiv.org/abs/2503.13657">"Why Do Multi-Agent LLM Systems Fail?"</a> (Cemri, Pan, Yang, Agrawal, Chopra, Tiwari, Keutzer, Parameswaran, Klein, Ramchandran, Zaharia, Gonzalez, and Stoica), analysed over 1,600 execution traces across seven multi-agent frameworks and identified 14 distinct failure modes. None of them involve an API going down.</p>
-<p>CascadeBreaker operates one level below the API, at the individual LangGraph node.</p>
-<h2 id="whats-in-this-documentation">What's In This Documentation</h2>
+<h1 id="agentarmour">AgentArmour</h1>
+<p><strong>Production reliability suite for LangChain/LangGraph multi-agent systems.</strong></p>
+<p>Multi-agent pipelines fail in ways a plain try/except never catches. An agent loops and burns tokens. A hallucinated value poisons shared state. Costs blow past budget with no exception raised. AgentArmour is a set of independent modules, each targeting one of those failure modes at the individual node.</p>
+<p>Grounded in <a href="https://arxiv.org/abs/2503.13657">"Why Do Multi-Agent LLM Systems Fail?"</a> (Cemri et al., March 2025), which analysed over 1,600 execution traces across seven multi-agent frameworks and identified 14 distinct failure modes. None of them involve an API going down.</p>
+<h2 id="modules">Modules</h2>
 <ul>
-<li><strong><a href="getting-started/">Getting Started</a></strong> — install and your first protected node</li>
-<li><strong><a href="strategies/">Fallback Strategies</a></strong> — the four ways to respond when a breaker trips</li>
-<li><strong><a href="guard/">Cross-Agent Guard</a></strong> — stopping contaminated data from spreading between agents</li>
-<li><strong><a href="storage/">Audit Ledger</a></strong> — persisting failures and state transitions to SQLite</li>
-<li><strong><a href="cli/">CLI</a></strong> — inspecting your audit log from the terminal</li>
-<li><strong><a href="dashboard/">Dashboard</a></strong> — visualizing breaker health with Streamlit</li>
+<li><strong><a href="cascadebreaker/">CascadeBreaker</a></strong> — circuit breaker and self-healing for failures that raise: loops, timeouts, cascading errors, contaminated state.</li>
+<li><strong><a href="agentbudget/">AgentBudget</a></strong> — token and cost ceilings for the quieter failure: runaway spend that never raises anything.</li>
+</ul>
+<h2 id="shared-tooling">Shared Tooling</h2>
+<ul>
+<li><strong><a href="storage/">Audit Ledger</a></strong> — both modules persist to one SQLite file, in separate tables</li>
+<li><strong><a href="cli/">CLI</a></strong> — inspect either ledger from the terminal</li>
+<li><strong><a href="dashboard/">Dashboard</a></strong> — one Streamlit app, a tab per module</li>
 <li><strong><a href="limitations/">Limitations</a></strong> — what this does not solve yet, stated plainly</li>
 </ul>
 <h2 id="install">Install</h2>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>agentarmour-toolkit
 </code></pre></div>
-<p>Core install pulls in only <code>pydantic</code> and <code>structlog</code>. Everything else (LangGraph integration, dashboard, dev tools) is optional.</p>
+<p>Core install pulls in only <code>pydantic</code> and <code>structlog</code>. LangGraph integration, LangChain callbacks, and the dashboard are optional extras.</p>
 <h2 id="source">Source</h2>
 <p><a href="https://github.com/Saravanan-SD/agentarmour">github.com/Saravanan-SD/agentarmour</a></p>
 

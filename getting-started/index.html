@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Circuit breaker and self-healing layer for LangGraph multi-agent systems">
+        <meta name="description" content="Production reliability suite for LangChain/LangGraph multi-agent systems">
       
       
       
@@ -14,7 +14,7 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../strategies/">
+        <link rel="next" href="../cascadebreaker/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Getting Started - CascadeBreaker</title>
+        <title>Getting Started - AgentArmour</title>
       
     
     
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="CascadeBreaker" class="md-header__button md-logo" aria-label="CascadeBreaker" data-md-component="logo">
+    <a href=".." title="AgentArmour" class="md-header__button md-logo" aria-label="AgentArmour" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +106,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            CascadeBreaker
+            AgentArmour
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -228,13 +228,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="CascadeBreaker" class="md-nav__button md-logo" aria-label="CascadeBreaker" data-md-component="logo">
+    <a href=".." title="AgentArmour" class="md-nav__button md-logo" aria-label="AgentArmour" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    CascadeBreaker
+    AgentArmour
   </label>
   
     <div class="md-nav__source">
@@ -413,8 +413,88 @@
   
   
   
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CascadeBreaker
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CascadeBreaker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../strategies/" class="md-nav__link">
+      <a href="../cascadebreaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cascadebreaker/strategies/" class="md-nav__link">
         
   
   
@@ -433,15 +513,16 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../guard/" class="md-nav__link">
+      <a href="../cascadebreaker/guard/" class="md-nav__link">
         
   
   
@@ -457,6 +538,101 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AgentBudget
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AgentBudget
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agentbudget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -699,11 +875,12 @@
 <p>That's the entire integration. One decorator.</p>
 <h2 id="what-happens-underneath">What Happens Underneath</h2>
 <p>The breaker tracks every call to <code>research_node</code>. If it fails 3 times within the configured window, the breaker trips OPEN. While OPEN, the real <code>research_node</code> is skipped entirely, the <code>CacheStrategy</code> serves the last good response instead.</p>
-<p>CLOSED ──(3 failures)──► OPEN</p>
-<p>▲   │</p>
-<p>│ (30s elapses)</p>
-<p>│   │</p>
-<p>└──(probe succeeds)── HALF_OPEN ◄┘</p>
+<div class="highlight"><pre><span></span><code>CLOSED ──(3 failures)──► OPEN
+   ▲                       │
+   │                  (30s elapses)
+   │                       │
+   └──(probe succeeds)── HALF_OPEN
+</code></pre></div>
 <p>After the cooldown, exactly one test call is allowed through. Succeed, and the breaker closes again. Fail, and it stays open with the timer reset.</p>
 <h2 id="checking-breaker-state">Checking Breaker State</h2>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">breaker</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>        <span class="c1"># BreakerState.CLOSED / OPEN / HALF_OPEN</span>
@@ -711,8 +888,9 @@
 </code></pre></div>
 <h2 id="next-steps">Next Steps</h2>
 <ul>
-<li>See <a href="../strategies/">Fallback Strategies</a> for the four ways to respond when a breaker trips</li>
-<li>See <a href="../guard/">Cross-Agent Guard</a> for protecting downstream nodes from corrupted state</li>
+<li>See <a href="../cascadebreaker/strategies/">Fallback Strategies</a> for the four ways to respond when a breaker trips</li>
+<li>See <a href="../cascadebreaker/guard/">Cross-Agent Guard</a> for protecting downstream nodes from corrupted state</li>
+<li>See <a href="../agentbudget/">AgentBudget</a> for putting cost and token ceilings on your pipeline</li>
 </ul>
 
 

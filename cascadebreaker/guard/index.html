@@ -11,24 +11,28 @@
       
       
       
+        <link rel="prev" href="../strategies/">
+      
+      
+        <link rel="next" href="../../agentbudget/">
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>AgentArmour</title>
+        <title>Cross-Agent Guard - AgentArmour</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#cross-agent-contamination-guard" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="AgentArmour" class="md-header__button md-logo" aria-label="AgentArmour" data-md-component="logo">
+    <a href="../.." title="AgentArmour" class="md-header__button md-logo" aria-label="AgentArmour" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Cross-Agent Guard
             
           </span>
         </div>
@@ -219,7 +228,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="AgentArmour" class="md-nav__button md-logo" aria-label="AgentArmour" data-md-component="logo">
+    <a href="../.." title="AgentArmour" class="md-nav__button md-logo" aria-label="AgentArmour" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -249,7 +258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -276,7 +285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   
@@ -300,8 +309,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -312,11 +323,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -337,7 +348,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -355,7 +366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cascadebreaker/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -383,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cascadebreaker/strategies/" class="md-nav__link">
+      <a href="../strategies/" class="md-nav__link">
         
   
   
@@ -408,10 +419,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/cascadebreaker/guard/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-Agent Guard
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -427,6 +465,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-it-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem It Solves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strict-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strict Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manually-managing-quarantine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manually Managing Quarantine
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -498,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/agentbudget/" class="md-nav__link">
+      <a href="../../agentbudget/" class="md-nav__link">
         
   
   
@@ -533,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/storage/" class="md-nav__link">
+      <a href="../../storage/" class="md-nav__link">
         
   
   
@@ -560,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -587,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/dashboard/" class="md-nav__link">
+      <a href="../../dashboard/" class="md-nav__link">
         
   
   
@@ -614,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/limitations/" class="md-nav__link">
+      <a href="../../limitations/" class="md-nav__link">
         
   
   
@@ -651,6 +764,71 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-it-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem It Solves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strict-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strict Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manually-managing-quarantine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manually Managing Quarantine
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -663,8 +841,82 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="cross-agent-contamination-guard">Cross-Agent Contamination Guard</h1>
+<p>A circuit breaker catches loud failures, the kind that raise exceptions. It does not catch an agent that <em>appears</em> to succeed while quietly writing corrupted data into shared state, which the next agent then trusts and builds on without question.</p>
+<p><code>CascadeGuard</code> closes that gap.</p>
+<h2 id="the-problem-it-solves">The Problem It Solves</h2>
+<p>Agent A fails partway through → writes a malformed value to "extracted_entities"</p>
+<p>Agent B reads "extracted_entities" → trusts it → produces wrong output</p>
+<p>Agent C inherits Agent B's wrong output → compounds the error</p>
+<p>No exception is ever raised. The pipeline looks healthy. The output is wrong.</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">agentarmour.cascadebreaker</span><span class="w"> </span><span class="kn">import</span> <span class="n">CascadeGuard</span>
+
+<span class="n">guard</span> <span class="o">=</span> <span class="n">CascadeGuard</span><span class="p">(</span><span class="n">quarantine_ttl_seconds</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="nd">@guard</span><span class="o">.</span><span class="n">protect_node</span><span class="p">(</span>
+    <span class="s2">&quot;extract_agent&quot;</span><span class="p">,</span>
+    <span class="n">quarantine_on_failure</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">],</span>
+    <span class="n">reads_from</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;raw_document&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">extract_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">state</span><span class="p">[</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">extract_llm</span><span class="o">.</span><span class="n">ainvoke</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;raw_document&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">state</span>
+
+<span class="nd">@guard</span><span class="o">.</span><span class="n">protect_node</span><span class="p">(</span>
+    <span class="s2">&quot;analyse_agent&quot;</span><span class="p">,</span>
+    <span class="n">reads_from</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">analyse_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">entities</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">entities</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="o">**</span><span class="n">state</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">:</span> <span class="s2">&quot;Entities unavailable, upstream agent degraded.&quot;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="o">**</span><span class="n">state</span><span class="p">,</span> <span class="s2">&quot;analysis&quot;</span><span class="p">:</span> <span class="k">await</span> <span class="n">analyse_llm</span><span class="o">.</span><span class="n">ainvoke</span><span class="p">(</span><span class="n">entities</span><span class="p">)}</span>
+</code></pre></div>
+<p>If <code>extract_node</code> raises an exception, <code>extracted_entities</code> is quarantined for 300 seconds. Any node that declares <code>reads_from=["extracted_entities"]</code> during that window receives <code>None</code> for that field instead of whatever <code>extract_node</code> may have partially written.</p>
+<h2 id="parameters">Parameters</h2>
+<p><strong><code>quarantine_on_failure</code></strong> — list of state keys to quarantine if this node raises an exception. These are fields this node is responsible for producing.</p>
+<p><strong><code>reads_from</code></strong> — list of state keys this node depends on. Before the node runs, each of these is checked. If quarantined, it's replaced with <code>None</code> (or a value from <code>field_defaults</code>, if provided).</p>
+<p><strong><code>field_defaults</code></strong> — optional dict mapping field names to a replacement value other than <code>None</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@guard</span><span class="o">.</span><span class="n">protect_node</span><span class="p">(</span>
+    <span class="s2">&quot;analyse_agent&quot;</span><span class="p">,</span>
+    <span class="n">reads_from</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">],</span>
+    <span class="n">field_defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="strict-mode">Strict Mode</h2>
+<p>By default, a quarantined field is silently replaced with <code>None</code>. If you'd rather fail loudly during development:</p>
+<div class="highlight"><pre><span></span><code><span class="n">guard</span> <span class="o">=</span> <span class="n">CascadeGuard</span><span class="p">(</span><span class="n">strict_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>In strict mode, reading a quarantined field raises <code>ContaminatedStateError</code> instead of substituting a default.</p>
+<h2 id="manually-managing-quarantine">Manually Managing Quarantine</h2>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">guard</span><span class="o">.</span><span class="n">quarantine_field</span><span class="p">(</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">,</span> <span class="n">source_node</span><span class="o">=</span><span class="s2">&quot;extract_agent&quot;</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;manual flag&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">guard</span><span class="o">.</span><span class="n">lift_quarantine</span><span class="p">(</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">)</span>
+
+<span class="n">guard</span><span class="o">.</span><span class="n">is_quarantined</span><span class="p">(</span><span class="s2">&quot;extracted_entities&quot;</span><span class="p">)</span>  <span class="c1"># bool</span>
+<span class="n">guard</span><span class="o">.</span><span class="n">quarantined_fields</span>                    <span class="c1"># list of currently quarantined fields</span>
+<span class="n">guard</span><span class="o">.</span><span class="n">metrics</span>                               <span class="c1"># dict for dashboard/monitoring</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -701,10 +953,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.sections", "content.code.copy"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
