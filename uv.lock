@@ -21,16 +21,15 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
+agentbudget = [
+    { name = "langchain-core" },
+]
 all = [
     { name = "langchain-core" },
     { name = "langgraph" },
     { name = "pandas", version = "2.3.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "pandas", version = "3.0.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "plotly" },
-    { name = "pytest" },
-    { name = "pytest-asyncio" },
-    { name = "pytest-cov" },
-    { name = "ruff" },
     { name = "streamlit" },
 ]
 cascadebreaker = [
@@ -66,7 +65,8 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "agentarmour-toolkit", extras = ["cascadebreaker", "storage", "dashboard", "dev"], marker = "extra == 'all'" },
+    { name = "agentarmour-toolkit", extras = ["cascadebreaker", "agentbudget", "dashboard"], marker = "extra == 'all'" },
+    { name = "langchain-core", marker = "extra == 'agentbudget'", specifier = ">=0.2.0" },
     { name = "langchain-core", marker = "extra == 'cascadebreaker'", specifier = ">=0.2.0" },
     { name = "langchain-core", marker = "extra == 'langgraph'", specifier = ">=1.3.2" },
     { name = "langgraph", marker = "extra == 'cascadebreaker'", specifier = ">=0.2.0" },
@@ -81,7 +81,7 @@ requires-dist = [
     { name = "streamlit", marker = "extra == 'dashboard'", specifier = ">=1.35.0" },
     { name = "structlog", specifier = ">=24.0.0" },
 ]
-provides-extras = ["cascadebreaker", "storage", "dashboard", "dev", "all", "langgraph"]
+provides-extras = ["cascadebreaker", "agentbudget", "dashboard", "dev", "all", "langgraph"]
 
 [package.metadata.requires-dev]
 dev = [

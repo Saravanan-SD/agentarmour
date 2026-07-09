@@ -40,7 +40,10 @@ cascadebreaker = [
     "langgraph>=0.2.0",
     "langchain-core>=0.2.0",
 ]
-storage = []
+agentbudget = [
+    "langchain-core>=0.2.0",
+]
+
 dashboard = [
     "streamlit>=1.35.0",
     "plotly>=5.0.0",
@@ -52,14 +55,14 @@ dev = [
     "pytest-cov>=5.0.0",
     "ruff>=0.4.0",
 ]
-all = ["agentarmour-toolkit[cascadebreaker,storage,dashboard,dev]"]
+all = ["agentarmour-toolkit[cascadebreaker,agentbudget,dashboard]"]
 langgraph = [
     "langchain-core>=1.3.2",
     "langgraph>=1.1.10",
 ]
 
 [project.scripts]
-agentarmour = "agentarmour.cascadebreaker.cli:main"
+agentarmour = "agentarmour.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/Saravanan-SD/agentarmour"

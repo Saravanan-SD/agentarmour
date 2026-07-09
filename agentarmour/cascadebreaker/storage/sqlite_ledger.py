@@ -30,7 +30,7 @@ class SQLiteLedger(AuditLedger):
     """
 
     def __init__(
-        self, db_path: str = "cascadebreaker.db", table_prefix: str = "cb_"
+        self, db_path: str = "agentarmour.db", table_prefix: str = "cb_"
     ) -> None:
         self._db_path = db_path
         self._prefix = table_prefix

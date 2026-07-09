@@ -130,6 +130,29 @@ def cmd_transitions(args: argparse.Namespace) -> int:
     conn.close()
     return 0
 
+def add_ledger_commands(subparsers) -> None:
+    """Attach the `ledger` command group to a parent subparser."""
+    ledger_parser = subparsers.add_parser("ledger", help="Inspect the audit ledger")
+    ledger_sub = ledger_parser.add_subparsers(dest="ledger_command")
+
+    summary_parser = ledger_sub.add_parser("summary", help="Show a high-level summary")
+    summary_parser.add_argument("--db", default="agentarmour.db")
+    summary_parser.add_argument("--table-prefix", default="cb_")
+    summary_parser.set_defaults(func=cmd_summary)
+
+    failures_parser = ledger_sub.add_parser("failures", help="List recorded failures")
+    failures_parser.add_argument("--db", default="agentarmour.db")
+    failures_parser.add_argument("--table-prefix", default="cb_")
+    failures_parser.add_argument("--breaker", default=None, help="Filter by breaker name")
+    failures_parser.add_argument("--limit", type=int, default=20)
+    failures_parser.set_defaults(func=cmd_failures)
+
+    transitions_parser = ledger_sub.add_parser("transitions", help="List state transitions")
+    transitions_parser.add_argument("--db", default="agentarmour.db")
+    transitions_parser.add_argument("--table-prefix", default="cb_")
+    transitions_parser.add_argument("--breaker", default=None, help="Filter by breaker name")
+    transitions_parser.add_argument("--limit", type=int, default=20)
+    transitions_parser.set_defaults(func=cmd_transitions)
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
@@ -141,29 +164,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     subparsers = parser.add_subparsers(dest="command")
-
-    ledger_parser = subparsers.add_parser("ledger", help="Inspect the audit ledger")
-    ledger_sub = ledger_parser.add_subparsers(dest="ledger_command")
-
-
-    summary_parser = ledger_sub.add_parser("summary", help="Show a high-level summary")
-    summary_parser.add_argument("--db", default="cascadebreaker.db")
-    summary_parser.add_argument("--table-prefix", default="cb_")
-    summary_parser.set_defaults(func=cmd_summary)
-
-    failures_parser = ledger_sub.add_parser("failures", help="List recorded failures")
-    failures_parser.add_argument("--db", default="cascadebreaker.db")
-    failures_parser.add_argument("--table-prefix", default="cb_")
-    failures_parser.add_argument("--breaker", default=None, help="Filter by breaker name")
-    failures_parser.add_argument("--limit", type=int, default=20)
-    failures_parser.set_defaults(func=cmd_failures)
-
-    transitions_parser = ledger_sub.add_parser("transitions", help="List state transitions")
-    transitions_parser.add_argument("--db", default="cascadebreaker.db")
-    transitions_parser.add_argument("--table-prefix", default="cb_")
-    transitions_parser.add_argument("--breaker", default=None, help="Filter by breaker name")
-    transitions_parser.add_argument("--limit", type=int, default=20)
-    transitions_parser.set_defaults(func=cmd_transitions)
+    add_ledger_commands(subparsers)
 
     return parser
 

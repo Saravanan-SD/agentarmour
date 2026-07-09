@@ -44,15 +44,13 @@ That's the entire integration. One decorator.
 
 The breaker tracks every call to `research_node`. If it fails 3 times within the configured window, the breaker trips OPEN. While OPEN, the real `research_node` is skipped entirely, the `CacheStrategy` serves the last good response instead.
 
+```
 CLOSED ──(3 failures)──► OPEN
-
-▲   │
-
-│ (30s elapses)
-
-│   │
-
-└──(probe succeeds)── HALF_OPEN ◄┘
+   ▲                       │
+   │                  (30s elapses)
+   │                       │
+   └──(probe succeeds)── HALF_OPEN
+```
 
 After the cooldown, exactly one test call is allowed through. Succeed, and the breaker closes again. Fail, and it stays open with the timer reset.
 
@@ -65,5 +63,6 @@ print(breaker.metrics)      # dict of counts, success rate, etc.
 
 ## Next Steps
 
-- See [Fallback Strategies](strategies.md) for the four ways to respond when a breaker trips
-- See [Cross-Agent Guard](guard.md) for protecting downstream nodes from corrupted state
+- See [Fallback Strategies](cascadebreaker/strategies.md) for the four ways to respond when a breaker trips
+- See [Cross-Agent Guard](cascadebreaker/guard.md) for protecting downstream nodes from corrupted state
+- See [AgentBudget](agentbudget/index.md) for putting cost and token ceilings on your pipeline

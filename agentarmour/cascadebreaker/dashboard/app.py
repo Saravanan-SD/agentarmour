@@ -66,13 +66,8 @@ def current_state_per_breaker(transitions: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def main() -> None:
-    st.set_page_config(page_title="CascadeBreaker Dashboard", layout="wide")
-    st.title("CascadeBreaker Dashboard")
-
-    db_path = get_db_path()
-    st.caption(f"Reading audit ledger from: {db_path}")
-
+def render(db_path: str) -> None:
+    """Render the CascadeBreaker section. Assumes page config is already set."""
     failures, transitions = load_data(db_path)
 
     if failures.empty and transitions.empty:
@@ -82,11 +77,13 @@ def main() -> None:
         )
         return
 
-    # --- Top row: live status cards ---
     col1, col2, col3 = st.columns(3)
     col1.metric("Total Failures", len(failures))
     col2.metric("Total State Transitions", len(transitions))
-    col3.metric("Breakers Tracked", failures["breaker_name"].nunique() if not failures.empty else 0)
+    col3.metric(
+        "Breakers Tracked",
+        failures["breaker_name"].nunique() if not failures.empty else 0,
+    )
 
     st.divider()
 
@@ -142,7 +139,13 @@ def main() -> None:
         )
     else:
         st.info("No transitions recorded yet.")
-
+        
+def main() -> None:
+    st.set_page_config(page_title="CascadeBreaker Dashboard", layout="wide")
+    st.title("CascadeBreaker Dashboard")
+    db_path = get_db_path()
+    st.caption(f"Reading audit ledger from: {db_path}")
+    render(db_path)
 
 if __name__ == "__main__":
     main()

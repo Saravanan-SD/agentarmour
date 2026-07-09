@@ -1,6 +1,6 @@
 # Audit Ledger
 
-Every failure and state transition a breaker records can be persisted to a local SQLite file, so they survive process restarts and can be inspected later.
+Every failure and state transition a breaker records, and every budget event a tracked node records, can be persisted to a local SQLite file, so they survive process restarts and can be inspected later.
 
 ## Zero Extra Dependencies
 
@@ -17,7 +17,7 @@ breaker = CircuitBreaker(
     name="research_agent",
     config=BreakerConfig(),
     fallback_strategy=CacheStrategy(),
-    ledger=SQLiteLedger(),  # writes to cascadebreaker.db by default
+    ledger=SQLiteLedger(),  # writes to agentarmour.db by default
 )
 ```
 
@@ -41,12 +41,26 @@ The `cb_` prefix can be customized:
 SQLiteLedger(table_prefix="myapp_")
 ```
 
+## AgentBudget's Ledger
+
+AgentBudget has its own ledger, `SQLiteBudgetLedger`, following the same pattern:
+
+```python
+from agentarmour.agentbudget import SQLiteBudgetLedger
+
+ledger = SQLiteBudgetLedger(db_path="agentarmour.db")
+```
+
+It writes one table, **`ab_events`** — one row per recorded call: node, run id, input tokens, output tokens, cost, state, timestamp.
+
+The two modules default to the same `agentarmour.db` file but never share tables. CascadeBreaker owns the `cb_` prefix, AgentBudget owns `ab_`. That's why they can sit in one database without coupling.
+
 ## Reading the Data Directly
 
 ```python
 import sqlite3
 
-conn = sqlite3.connect("cascadebreaker.db")
+conn = sqlite3.connect("agentarmour.db")
 rows = conn.execute("SELECT * FROM cb_failures ORDER BY timestamp DESC LIMIT 10").fetchall()
 ```
 
@@ -66,4 +80,6 @@ class MyCustomLedger(AuditLedger):
     async def log_transition(self, transition):
         ...
 
-    async def
+    async def close(self):
+        ...
+```

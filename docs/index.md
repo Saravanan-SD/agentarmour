@@ -1,25 +1,21 @@
-# CascadeBreaker
+# AgentArmour
 
-**Circuit breaker and self-healing layer for LangGraph multi-agent systems.**
+**Production reliability suite for LangChain/LangGraph multi-agent systems.**
 
-## Why This Exists
+Multi-agent pipelines fail in ways a plain try/except never catches. An agent loops and burns tokens. A hallucinated value poisons shared state. Costs blow past budget with no exception raised. AgentArmour is a set of independent modules, each targeting one of those failure modes at the individual node.
 
-Existing circuit breaker tools for LLMs (`llm-circuit`, `aeneassoft`, `llm-cascade`) only protect against **LLM API provider outages**. OpenAI down, Anthropic rate-limited.
+Grounded in ["Why Do Multi-Agent LLM Systems Fail?"](https://arxiv.org/abs/2503.13657) (Cemri et al., March 2025), which analysed over 1,600 execution traces across seven multi-agent frameworks and identified 14 distinct failure modes. None of them involve an API going down.
 
-They do nothing about what actually breaks production multi-agent systems: an agent stuck in a reasoning loop, a hallucinated value silently poisoning shared state, one agent's failure cascading through every downstream node.
+## Modules
 
-A March 2025 paper, ["Why Do Multi-Agent LLM Systems Fail?"](https://arxiv.org/abs/2503.13657) (Cemri, Pan, Yang, Agrawal, Chopra, Tiwari, Keutzer, Parameswaran, Klein, Ramchandran, Zaharia, Gonzalez, and Stoica), analysed over 1,600 execution traces across seven multi-agent frameworks and identified 14 distinct failure modes. None of them involve an API going down.
+- **[CascadeBreaker](cascadebreaker/index.md)** — circuit breaker and self-healing for failures that raise: loops, timeouts, cascading errors, contaminated state.
+- **[AgentBudget](agentbudget/index.md)** — token and cost ceilings for the quieter failure: runaway spend that never raises anything.
 
-CascadeBreaker operates one level below the API, at the individual LangGraph node.
+## Shared Tooling
 
-## What's In This Documentation
-
-- **[Getting Started](getting-started.md)** — install and your first protected node
-- **[Fallback Strategies](strategies.md)** — the four ways to respond when a breaker trips
-- **[Cross-Agent Guard](guard.md)** — stopping contaminated data from spreading between agents
-- **[Audit Ledger](storage.md)** — persisting failures and state transitions to SQLite
-- **[CLI](cli.md)** — inspecting your audit log from the terminal
-- **[Dashboard](dashboard.md)** — visualizing breaker health with Streamlit
+- **[Audit Ledger](storage.md)** — both modules persist to one SQLite file, in separate tables
+- **[CLI](cli.md)** — inspect either ledger from the terminal
+- **[Dashboard](dashboard.md)** — one Streamlit app, a tab per module
 - **[Limitations](limitations.md)** — what this does not solve yet, stated plainly
 
 ## Install
@@ -28,7 +24,7 @@ CascadeBreaker operates one level below the API, at the individual LangGraph nod
 pip install agentarmour-toolkit
 ```
 
-Core install pulls in only `pydantic` and `structlog`. Everything else (LangGraph integration, dashboard, dev tools) is optional.
+Core install pulls in only `pydantic` and `structlog`. LangGraph integration, LangChain callbacks, and the dashboard are optional extras.
 
 ## Source
 

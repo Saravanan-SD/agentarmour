@@ -1,5 +1,5 @@
-site_name: CascadeBreaker
-site_description: Circuit breaker and self-healing layer for LangGraph multi-agent systems
+site_name: AgentArmour
+site_description: Production reliability suite for LangChain/LangGraph multi-agent systems
 repo_url: https://github.com/Saravanan-SD/agentarmour
 repo_name: Saravanan-SD/agentarmour
 
@@ -23,8 +23,12 @@ theme:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Fallback Strategies: strategies.md
-  - Cross-Agent Guard: guard.md
+  - CascadeBreaker:
+      - Overview: cascadebreaker/index.md
+      - Fallback Strategies: cascadebreaker/strategies.md
+      - Cross-Agent Guard: cascadebreaker/guard.md
+  - AgentBudget:
+      - Overview: agentbudget/index.md
   - Audit Ledger: storage.md
   - CLI: cli.md
   - Dashboard: dashboard.md

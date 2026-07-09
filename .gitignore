@@ -1,1 +1,19 @@
 notes.txt
+Articles/
+site/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+
+# AgentArmour runtime artifacts
+*.db
+
+# Local archives
+docs.zip
+
+# Build output
+dist/
+site/
